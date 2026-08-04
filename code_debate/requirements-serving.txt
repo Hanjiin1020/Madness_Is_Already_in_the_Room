@@ -1,0 +1,26 @@
+# Serving environment for Gemma, Qwen, InternVL, and Pixtral.
+# Install separately from the client environment.
+#
+#   pip install -r requirements-serving.txt
+#   GPU=0 PORT=8004 MAXLEN=32768 bash serve_qwen.sh
+#
+# Tested with Python 3.12 and one 48 GB GPU at max-model-len 32768.
+# Use requirements-serving-mllama.txt for Llama-3.2-Vision.
+
+vllm==0.24.0
+torch==2.11.0
+torchvision==0.26.0
+transformers==5.13.0
+tokenizers==0.22.2
+numpy==2.3.5
+safetensors==0.8.0
+
+# Model dependencies
+mistral_common==1.11.5  # Pixtral (--tokenizer-mode/--config-format/--load-format mistral)
+timm==1.0.28            # InternVL3.5 vision encoder
+einops==0.8.2           # InternVL3.5 (--trust-remote-code)
+
+# Kernels and builds
+flashinfer-python==0.6.12
+ninja==1.13.0           # FlashInfer JIT build
+triton==3.6.0

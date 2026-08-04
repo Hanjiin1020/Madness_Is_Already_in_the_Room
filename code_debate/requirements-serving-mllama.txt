@@ -1,0 +1,21 @@
+# Serving environment for Llama-3.2-11B-Vision.
+#
+# Llama requires a separate environment with an older vLLM release.
+#
+#   python -m venv .venv-mllama && source .venv-mllama/bin/activate
+#   pip install -r requirements-serving-mllama.txt
+#   VLLM_BIN=$PWD/.venv-mllama/bin/vllm GPU=0 PORT=8002 bash serve_llama.sh
+#
+# Tested with Python 3.12; serve_llama.sh supplies the required flags.
+
+vllm==0.10.2
+torch==2.8.0
+torchvision==0.23.0
+transformers==4.55.2
+tokenizers==0.21.4
+numpy==2.2.6
+safetensors==0.8.0
+xformers==0.0.32.post1
+einops==0.8.2
+ninja==1.13.0
+triton==3.4.0

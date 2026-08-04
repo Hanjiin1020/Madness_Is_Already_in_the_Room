@@ -1,0 +1,39 @@
+
+serving:
+  max_model_len: 32768
+  gpu_memory_utilization: 0.90
+  tensor_parallel_size: 1
+
+sampling:
+  temperature: 0.7
+  top_p: 0.9
+  seed: 42
+  max_tokens: 16384
+  max_records_in_flight: 20
+
+
+per_model_max_tokens:
+  gemma4: 16384
+  internvl3_5: 16384
+  qwen35: 16384
+  pixtral: 16384
+  llama32vision: 4096
+
+min_tokens:
+  llama32vision: 128          # --min-tokens 128 --min-tokens-models llama32vision
+
+rounds:
+  debate: 5
+  self_reflect: 5
+
+teams:
+  - [gemma4, internvl3_5, qwen35]
+  - [gemma4, internvl3_5, pixtral]
+  - [gemma4, qwen35, pixtral]
+  - [internvl3_5, qwen35, pixtral]
+  - [gemma4, qwen35, llama32vision]
+  - [gemma4, internvl3_5, llama32vision]
+  - [internvl3_5, llama32vision, qwen35]
+  - [gemma4, llama32vision, pixtral]
+  - [internvl3_5, llama32vision, pixtral]
+  - [qwen35, llama32vision, pixtral]

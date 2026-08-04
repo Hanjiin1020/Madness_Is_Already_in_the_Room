@@ -1,0 +1,13 @@
+# debate dependency — main.py / data_prep
+# Run vLLM servers in the separate serving environments.
+# requirements-serving-mllama.txt (Llama-3.2-Vision).
+#
+#   pip install -r requirements.txt
+#
+# Python 3.12
+
+openai==2.31.0          # Async vLLM client
+pandas==3.0.2           # Data conversion
+pyarrow==23.0.1         # Parquet support
+numpy==2.4.4
+pillow==12.2.0          # Optional image validation
